@@ -2,8 +2,7 @@
 
 ## Overview
 
-Fine-tune OpenAI's `whisper-medium` model on the Leyu Amharic speech dataset to build a production-quality Automatic Speech Recognition (ASR) system for Amharic. The project includes a live Gradio demo hosted on HuggingFace Spaces, a reproducible training pipeline on Google Colab, and a polished GitHub repository suitable as a portfolio piece.
-
+Fine-tune OpenAI's `whisper-medium` model on the Leyu Amharic speech dataset to build a production-quality Automatic Speech Recognition (ASR) system for Amharic. The project includes a live Gradio demo hosted on HuggingFace Spaces, a reproducible training pipeline on Google Colab.
 ---
 
 ## Goals
