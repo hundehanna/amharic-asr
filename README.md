@@ -1,8 +1,8 @@
 # Amharic Speech Recognition — Fine-tuned Whisper Medium
 
-[![HuggingFace Model](https://img.shields.io/badge/🤗%20Model-whisper--medium--amharic-blue)](https://huggingface.co/your-hf-username/whisper-medium-amharic)
-[![HuggingFace Spaces](https://img.shields.io/badge/🤗%20Demo-Spaces-orange)](https://huggingface.co/spaces/your-hf-username/amharic-asr-demo)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/amharic-asr/blob/main/notebooks/train_whisper_amharic.ipynb)
+[![HuggingFace Model](https://img.shields.io/badge/🤗%20Model-whisper--medium--amharic-blue)](https://huggingface.co/hundehanna/whisper-medium-amharic)
+[![HuggingFace Spaces](https://img.shields.io/badge/🤗%20Demo-Spaces-orange)](https://huggingface.co/spaces/hundehanna/amharic-asr-demo)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hundehanna/amharic-asr/blob/main/notebooks/train_whisper_amharic.ipynb)
 
 Fine-tuned `openai/whisper-medium` on the [Leyu Amharic dataset](https://leyu.ai/datasets) — a multi-dialect Amharic speech corpus covering Gojjam, Gonder, Wello, and Shewa dialects (~27,000 samples). This project demonstrates end-to-end low-resource ASR development for Amharic (አማርኛ), one of Ethiopia's most widely spoken languages.
 
@@ -12,7 +12,7 @@ Fine-tuned `openai/whisper-medium` on the [Leyu Amharic dataset](https://leyu.ai
 
 > Try the model directly in your browser — no setup required.
 
-**[🎙️ Launch Demo on HuggingFace Spaces](https://huggingface.co/spaces/your-hf-username/amharic-asr-demo)**
+**[🎙️ Launch Demo on HuggingFace Spaces](https://huggingface.co/spaces/hundehanna/amharic-asr-demo)**
 
 Record your voice or upload an audio file to receive an Amharic transcript.
 
@@ -80,7 +80,7 @@ amharic-asr/
 
 1. Open the notebook in Google Colab:
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/your-github-username/amharic-asr/blob/main/notebooks/train_whisper_amharic.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hundehanna/amharic-asr/blob/main/notebooks/train_whisper_amharic.ipynb)
 
 2. Switch runtime to **T4 GPU** (Runtime → Change runtime type → GPU)
 

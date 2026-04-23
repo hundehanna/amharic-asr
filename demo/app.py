@@ -6,7 +6,7 @@ Deploy this to HuggingFace Spaces (Gradio SDK).
 import gradio as gr
 from transformers import pipeline
 
-MODEL_ID = "your-hf-username/whisper-medium-amharic"  # <-- UPDATE after training
+MODEL_ID = "hundehanna/whisper-medium-amharic"  # <-- UPDATE after training
 
 asr_pipe = pipeline(
     "automatic-speech-recognition",
