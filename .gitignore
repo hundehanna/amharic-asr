@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model artifacts / training output (don't commit these to GitHub — use HF Hub)
+whisper-medium-amharic/
+*.bin
+*.safetensors
+*.pt
+*.ckpt
+runs/
+wandb/
+
+# HuggingFace cache
+.cache/
+~/.cache/huggingface/
+
+# Data (don't commit raw audio)
+data/
+*.wav
+*.mp3
+*.flac
+!demo/examples/*.wav
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Claude Code local config
+.claude/

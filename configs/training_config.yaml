@@ -1,0 +1,42 @@
+model:
+  base_model: "openai/whisper-medium"
+  task: "transcribe"
+  language: "amharic"
+
+data:
+  # All 4 Leyu dialect datasets combined (~27k samples, ~280 hours total)
+  dataset_names:
+    - "leyu-amharic/leyu-amharic-gojjam-dialect"   # 10.6k rows, 81h
+    - "leyu-amharic/leyu-amharic-gonder-dialect"    # 8.99k rows
+    - "leyu-amharic/leyu-amharic-wello-dialect"     # 4.86k rows
+    - "leyu-amharic/leyu-amharic-shewa-dialect"     # 2.59k rows
+  audio_column: "audio"
+  transcript_column: "text"
+  # Note: all datasets only have a "train" split — we manually split below
+  test_size: 0.1        # 10% held out for test
+  val_size: 0.1         # 10% held out for validation
+  sample_rate: 16000
+  max_duration_seconds: 30   # Whisper max; some Leyu samples exceed this
+  min_duration_seconds: 1
+
+training:
+  output_dir: "./whisper-medium-amharic"
+  max_steps: 4000
+  learning_rate: 1.0e-5
+  warmup_steps: 500
+  per_device_train_batch_size: 16
+  gradient_accumulation_steps: 1
+  fp16: true
+  evaluation_strategy: "steps"
+  eval_steps: 200
+  save_steps: 200
+  logging_steps: 25
+  load_best_model_at_end: true
+  metric_for_best_model: "wer"
+  greater_is_better: false
+  push_to_hub: true
+  hub_model_id: "whisper-medium-amharic"  # set to your HF username/model-name
+
+generation:
+  predict_with_generate: true
+  generation_max_length: 225
