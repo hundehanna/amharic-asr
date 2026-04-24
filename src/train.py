@@ -83,7 +83,7 @@ def train(config_path: str = "configs/training_config.yaml"):
         gradient_accumulation_steps=train_cfg["gradient_accumulation_steps"],
         gradient_checkpointing=True,
         fp16=train_cfg["fp16"],
-        evaluation_strategy=train_cfg["evaluation_strategy"],
+        eval_strategy=train_cfg["evaluation_strategy"],  # renamed in transformers 4.46
         eval_steps=train_cfg["eval_steps"],
         save_steps=train_cfg["save_steps"],
         logging_steps=train_cfg["logging_steps"],
@@ -103,7 +103,7 @@ def train(config_path: str = "configs/training_config.yaml"):
         eval_dataset=dataset["validation"],
         data_collator=data_collator,
         compute_metrics=lambda pred: compute_metrics(pred, processor),
-        tokenizer=processor.feature_extractor,
+        processing_class=processor.feature_extractor,  # renamed in transformers 4.46
     )
 
     trainer.train()
