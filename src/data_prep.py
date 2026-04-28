@@ -46,6 +46,10 @@ def prepare_dataset(example, processor: WhisperProcessor):
     return example
 
 
+# Whisper's decoder maximum target length. Labels longer than this crash training.
+MAX_LABEL_LEN = 448
+
+
 def build_dataset(config: dict, processor: WhisperProcessor):
     dataset_names = config["data"]["dataset_names"]
     min_dur = config["data"]["min_duration_seconds"]
@@ -71,10 +75,14 @@ def build_dataset(config: dict, processor: WhisperProcessor):
     }
 
     for split_name, split_data in dataset_dict.items():
-        dataset_dict[split_name] = split_data.map(
+        mapped = split_data.map(
             lambda ex: prepare_dataset(ex, processor),
             remove_columns=split_data.column_names,
             num_proc=2,
         )
+        # Drop samples whose tokenized labels exceed Whisper's decoder limit.
+        # Amharic in Ethiopic script tokenizes inefficiently; some transcripts
+        # produce >448 tokens and would crash training.
+        dataset_dict[split_name] = mapped.filter(lambda ex: len(ex["labels"]) <= MAX_LABEL_LEN)
 
     return dataset_dict
